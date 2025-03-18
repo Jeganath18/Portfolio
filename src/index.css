@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+.name{
+  color: #1C64F2;
+  font-family:monospace;
+  font-size: 30px;
+}
+
+
+.Heading{
+  font-size: 40px;
+  margin-top: -800px;
+  
+}
+
+@media screen and (max-width:400px) {
+  
+  
+}
+
+.top{
+  margin-top: -220px;
+}
+
+.smalltag{
+  margin-top: -80px;
+}
+.to{
+  margin-top: -25px;
+}
