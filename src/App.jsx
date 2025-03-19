@@ -274,7 +274,7 @@ export default function Example() {
       <div className="py-10 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center pt-10 exp relative overflow-hidden">
 
   {/* Content */}
-  <div className="relative isolate py-30 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center p-15 sm:p-20 lg:p-40 xl:p-70" id='experience'>
+  <div className="relative isolate py-30 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center p-8 sm:p-20 lg:p-40 xl:p-70" id='experience'>
   <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -288,7 +288,7 @@ export default function Example() {
           />
         </div>
     <h2 className="text-base/7 font-semibold text-indigo-600">Experience</h2>
-    <p className="mt-0 mb-10 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance">
+    <p className="mt-0 mb-10 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance exp">
       My Experience
     </p>
 
