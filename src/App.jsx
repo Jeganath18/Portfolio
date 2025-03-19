@@ -288,7 +288,7 @@ export default function Example() {
           />
         </div>
     <h2 className="text-base/7 font-semibold text-indigo-600">Experience</h2>
-    <p className="mt-0 mb-10 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance exp">
+    <p className="mt-0 mb-10 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance">
       My Experience
     </p>
 
