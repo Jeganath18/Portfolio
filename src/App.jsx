@@ -4,7 +4,10 @@ import { AcademicCapIcon, Bars3Icon, BuildingLibraryIcon, XMarkIcon } from '@her
 import axios from "axios";
 import { Typography } from "@material-tailwind/react";
 
-
+function Words(){
+  return <h2 className="mt-4 text-3xl/8 font-semibold text-indigo-700">End-to-End Web Developer<br></br>Wit Engineer<br></br>Tenacious</h2>
+  
+}
 
 const navigation = [
   { name: 'About', href: '#about' },
@@ -154,9 +157,7 @@ export default function Example() {
             <h1 className="text-5xl font-semibold tracking-tight text-balance text-white dark:text-white sm:text-7xl">
               Hii, this is Jegan aka Jeganath
             </h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-400 dark:text-gray-400 sm:text-xl/8">
-              A passionate web developer and lifelong learner, blending innovation with fun to build the web of tomorrow.
-            </p>
+            <Words></Words>
           </div>
         </div>
         <div
