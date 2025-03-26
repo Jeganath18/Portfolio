@@ -6,13 +6,71 @@ import { Typography } from "@material-tailwind/react";
 
 function Words(){
   return <h2 className="mt-4 text-3xl/8 font-semibold text-indigo-700">End-to-End Web Developer<br></br>Wit Engineer<br></br>Tenacious</h2>
-  
 }
 
+
+const posts = [
+  {
+    id: 1,
+    description:
+      'I had the pleasure of working with Jegan during his internship at Plugzmart, where he contributed to our software development projects for a month. During this time, he quickly adapted to our workflows, demonstrated strong problem-solving skills, and showed great enthusiasm for learning. He played a key role in developing an Angular-based Single Page Application (SPA) that serves as an EV charger simulator to test our EV charging management platform. His ability to grasp new concepts quickly and deliver a functional solution within a short period was impressive.',
+    date: 'Feb 1, 2025',
+    category: { title: 'Jegan\'s Manager', href: 'https://www.linkedin.com/in/raghavendar-ts/' },
+    author: {
+      name: 'Raghavendar TS',
+      role: 'Director at Plugzmart | Software Lead',
+      href: '#',
+    },
+    href:'https://www.linkedin.com/in/jeganathb/details/recommendations/'
+  },
+  {
+    id: 2,
+    description:
+      'I had the privilege of guiding Jeganath, and I must say, he is a remarkable young mind with a passion for innovation and success. His enthusiasm for learning and his relentless drive to excel set him apart. Jeganath doesn’t just embrace technology, he thrives on it, always eager to push boundaries and explore new possibilities. I highly recommend him for any opportunity that demands intelligence, dedication, and a forward-thinking mindset.',
+    date: 'Mar 24, 2025',
+    category: { title: 'Jegan\'s Mentor', href: 'https://www.linkedin.com/in/akshara-a/' },
+    author: {
+      name: 'Akshara A',
+      role: 'Software Developer at Propel',
+      href: '#',
+    },
+    href:'https://www.linkedin.com/in/jeganathb/details/recommendations/'
+
+  },
+  {
+    id: 3,
+    description:
+      'I had the opportunity to observe Jeganath during his internship at our EV charger manufacturing company. Tasked with developing testing software using Angular, he quickly adapted to the role and delivered high-quality results. His strong technical foundation, proactive attitude, and ability to learn rapidly stood out. Jeganath demonstrates exceptional potential and would be a valuable addition to any team.',
+    date: 'Feb 2, 2025',
+    category: { title: 'Jegan\'s Colleague', href: 'https://www.linkedin.com/in/parthasarathy1998/' },
+    author: {
+      name: 'Partha Sarathy',
+      role: 'Software Developer at Plugzmart',
+      href: '#',
+    },
+    href:'https://www.linkedin.com/in/jeganathb/details/recommendations/'
+
+  },
+  {
+    id: 4,
+    description:
+      'I had the pleasure of working with Jeganath during his internship at our company, and I must say, he has truly impressed me with his skills and dedication. Jeganath has a solid grasp of Angular and frontend development. He consistently delivered high-quality work, quickly picking up new concepts and implementing them effectively. What stood out most was his proactive attitude and willingness to learn. Jeganath’s ability to collaborate with the team made him a valuable asset, and his positive attitude made him a joy to work with. I’m confident that Jeganath will continue to excel in his career, and I highly recommend him for any role in software development.',
+    date: 'Feb 4, 2025',
+    category: { title: 'Jegan\'s Colleague', href: 'https://www.linkedin.com/in/suryakannathasan/' },
+    author: {
+      name: 'Surya Kannathasan',
+      role: 'Software Tester at Plugzmart',
+      href: '#',
+    },
+    href:'https://www.linkedin.com/in/jeganathb/details/recommendations/'
+
+  },
+];
 const navigation = [
   { name: 'About', href: '#about' },
   { name: 'Education', href: '#education' },
   { name: 'Experience', href: '#experience' },
+  {name : 'Recommendations', href: '#Recommendation'},
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -71,7 +129,7 @@ export default function Example() {
               <span className="sr-only"></span>
             </a>
           </div>
-          <div className="flex lg:hidden">
+          <div className="flex lg:hidden"> 
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
@@ -219,10 +277,10 @@ export default function Example() {
       </div>
           
       {/* Education Section */}
-      <div className="relative isolate py-30 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center" id='education'>
+      <div className="relative isolate py-40 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center" id='education'>
       <div
           aria-hidden="true"
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl"
         >
           <div
             style={{
@@ -232,9 +290,9 @@ export default function Example() {
             className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 min-h-screen">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base/7 font-semibold text-indigo-600">Education</h2>
+            <h2 className="text-base/7 font-semibold text-indigo-600 up">Education</h2>
             <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance">
               My Education
             </p>
@@ -274,7 +332,7 @@ export default function Example() {
       <div className="py-10 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center pt-10 exp relative overflow-hidden">
 
   {/* Content */}
-  <div className="relative isolate py-30 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center p-8 sm:p-20 lg:p-40 xl:p-70" id='experience'>
+  <div className="relative isolate py-5 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center p-8 sm:p-50 lg:p-40 xl:p-70" id='experience'>
   <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -287,19 +345,30 @@ export default function Example() {
             className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div>
-    <h2 className="text-base/7 font-semibold text-indigo-600">Experience</h2>
+    <h2 className="text-base/7 font-semibold text-indigo-600 upp">Experience</h2>
     <p className="mt-0 mb-10 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance">
       My Experience
     </p>
 
     <ul>
+    <li className="relative flex items-baseline gap-6 pb-5">
+        <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+        </div>
+        <div>
+          <p className="text-gray-200">March 2025-Present</p>
+          <h2 className="text-sm text-base/7 font-semibold text-indigo-600">Software Developer Intern</h2>
+          <p className="mt-0 text-gray-200 text-l/8">Currently interning remotely as a Full Stack Developer at Meriity, an Australian company. I am responsible for both front-end and back-end development, gaining hands-on experience with modern technologies. This role is enhancing my technical skills while fostering growth in teamwork and professional development. I am compensated with a stipend for my contributions.</p>
+        </div>
+      </li>
       <li className="relative flex items-baseline gap-6 pb-5">
         <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
             <circle cx="8" cy="8" r="8" />
           </svg>
         </div>
-        
         <div>
           <p className="text-gray-200">December 2024-January 2025</p>
           <h2 className="text-sm text-base/7 font-semibold text-indigo-600">Software Developer Intern</h2>
@@ -347,10 +416,61 @@ export default function Example() {
         </div>
   </div>
 </div>
+{/*Recommendations*/}
+<div className="bg-gray-900 dark:bg-gray-900 py-24 sm:py-32 min-h-screen" id='Recommendation'>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl lg:mx-0">
+        <h2 className="text-base/7 font-semibold text-indigo-600">Recommendations</h2>
+          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-200 sm:text-5xl">What People Are Saying</h2>
+          <p className="mt-5 text-lg/8 text-indigo-200">I’ve had the privilege of collaborating with incredible individuals and teams. Here are some of the kind words and recommendations they’ve shared about our work together. I’m grateful for their trust and feedback, and I’m always looking forward to future collaborations!</p>
+        </div>
+        <div className="overflow-x-auto scroll-smooth py-4">
+        <div className="flex gap-x-5 gap-y-5 mt-15 flex-wrap justify-center">
+  {posts.map((post) => (
+    <div
+      key={post.id}
+      className="flex-none w-full sm:w-80 md:w-52 lg:w-72 bg-gray-800 rounded-xl p-4 mb-6 md:mb-0"
+    >
+      <div className="flex items-center gap-x-4 text-xs">
+        <time dateTime={post.datetime} className="text-gray-200">
+          {post.date}
+        </time>
+        <a
+          href={post.category.href}
+          className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-900 hover:bg-gray-100"
+        >
+          {post.category.title}
+        </a>
+      </div>
+
+      <div className="group relative mt-3">
+        <h3 className="text-lg font-semibold text-gray-200 group-hover:text-gray-600">
+          <a href={post.href}>
+            <span className="absolute inset-0" />
+            {post.title}
+          </a>
+        </h3>
+        <p href={post.href} className="mt-5 text-sm text-gray-200 line-clamp-3">{post.description}</p>
+      </div>
+      <div className="relative mt-8 flex items-center gap-x-4">
+      <div className="text-sm flex flex-col">
+  <p className="font-semibold text-gray-200">
+    <a href={post.category.href}>
+      <span className="absolute inset-0" />
+      {post.author.name}
+    </a>
+  </p>
+  <p className="text-gray-400">{post.author.role}</p>
+</div>
+      </div>
+    </div>
+  ))}
+</div>
+</div>
+</div>
+</div>
 
 {/*Contact */}
-
-
 <div className="relative mx-auto max-w-2xl text-center min-h-screen py-5 p-5" id="contact">
       <h2 className="text-base/7 font-semibold text-indigo-600">Contact</h2>
       <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-200 sm:text-5xl">Get in touch!</h2>

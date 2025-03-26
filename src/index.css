@@ -6,6 +6,25 @@
   font-size: 30px;
 }
 
+.up{
+  margin-top: -10px;
+}
+
+.upp{
+  margin-top: -180px;
+}
+
+
+
+@media screen and (max-width:600px) {
+  .upp{
+    margin-top: -10px;
+  }
+  .up{
+    margin-top: -80px;
+  }
+  
+}
 
 .Heading{
   font-size: 40px;
