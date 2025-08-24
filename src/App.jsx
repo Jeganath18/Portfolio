@@ -204,10 +204,10 @@ export default function Example() {
         <div className="mx-auto max-w-2xl py-10 sm:py-48 lg:py-20">
           {/* Circular Image with Border */}
           <div className="flex justify-center">
-            <img
-              src="https://drive.usercontent.google.com/download?id=1L0eVOcoJA5YAJMvJKduIfCiUWOmqttN3&export=view&authuser=0"// Replace with your image URL
-              alt="Jeganath"
-              className="rounded-full h-48 w-48 border-4 border-indigo-600 shadow-lg hover:border-indigo-500 transition-all duration-300"
+          <img
+            src="https://drive.google.com/uc?export=view&id=1L0eVOcoJA5YAJMvJKduIfCiUWOmqttN3"
+            alt="Jeganath"
+            className="rounded-full h-48 w-48 border-4 border-indigo-600 shadow-lg hover:border-indigo-500 transition-all duration-300"
             />
           </div>
 
