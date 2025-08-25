@@ -205,7 +205,7 @@ export default function Example() {
           {/* Circular Image with Border */}
           <div className="flex justify-center">
           <img
-            src="https://drive.google.com/uc?export=view&id=1L0eVOcoJA5YAJMvJKduIfCiUWOmqttN3"
+            src="https://media.licdn.com/dms/image/v2/D5603AQHvOd-LnfmUhA/profile-displayphoto-shrink_800_800/B56ZYQYf11HEAc-/0/1744031582004?e=1758758400&v=beta&t=_8iwg6elqoVXlULcMKOVEjvlvWXA8tBRDjASKEzkaqI"
             alt="Jeganath"
             className="rounded-full h-48 w-48 border-4 border-indigo-600 shadow-lg hover:border-indigo-500 transition-all duration-300"
             />
