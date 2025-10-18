@@ -695,9 +695,11 @@ export default function Example() {
 
             <button
               type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-300"
+              disabled
+              className="w-full bg-indigo-300 text-gray-600 font-semibold py-3 rounded-lg shadow-md transition-all duration-300"
             >
-              Send Message
+              Currently it won't work connect with me in linkedin
+              
             </button>
 
             {responseMessage && <p className="text-green-400 mt-2">{responseMessage}</p>}
