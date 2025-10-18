@@ -4,9 +4,85 @@ import { AcademicCapIcon, Bars3Icon, BuildingLibraryIcon, XMarkIcon } from '@her
 import axios from "axios";
 import { Typography } from "@material-tailwind/react";
 
-function Words(){
-  return <h2 className="mt-4 text-3xl/8 font-semibold text-indigo-700">End-to-End Web Developer<br></br>Wit Engineer<br></br>Tenacious</h2>
+function Words() {
+  return (<><h1 className="mt-4 text-4xl sm:text-5xl font-bold text-indigo-600 leading-snug">
+  Full-Stack Engineer & Student<br />
+  Aspiring to Build Better Software Solutions
+</h1>
+</>)
 }
+
+import { useEffect } from "react";
+import { FaChevronDown } from "react-icons/fa"; 
+
+
+function ScrollArrow({ className = "" }) {
+  const [showArrow, setShowArrow] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      setShowArrow(scrollTop + windowHeight < docHeight - 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!showArrow) return null;
+
+  return (
+    <div
+      className={`flex justify-center mt-10 ${className} animate-bounce text-indigo-500 text-4xl`}
+    >
+      <FaChevronDown />
+    </div>
+  );
+}
+
+
+const projects = [
+  {
+    id: 1,
+    title: "Nexa AI – Intelligent Sales Agent Platform",
+    description:
+      "Engineered an AI-driven sales assistant integrating Gemini API for intelligent product recommendations, inventory tracking, order placement, and fulfillment. Designed a gRPC-based microservice architecture for modular services, improving system scalability and response time by 30%.",
+    category: { title: "Live & Github", href: "https://t.me/NexaAgenticAI_bot" },
+    techStack: "React.js | Node.js | gRPC | Gemini API",
+    href: "https://github.com/Jeganath18/AI-Sales-Agent",
+  },
+  {
+    id: 2,
+    title: "OCPP 1.6 Charger Debugging Tool",
+    description:
+      "Built a WebSocket-based OCPP simulator for EV charger–server communication at Plugzmart (IITMRP company). Implemented charger request/response handling and real-time message logs, improving QA debugging efficiency by 35%.",
+    category: { title: "Github", href: "https://github.com/Jeganath18/OCPP-CHARGER-SIMULATOR" },
+    techStack: "Angular | Node.js | Express.js | WebSocket | REST API",
+    href: "https://github.com/Jeganath18/OCPP-CHARGER-SIMULATOR",
+  },
+  {
+    id: 3,
+    title: "Full-Stack CRM Application",
+    description:
+      "Developed a secure CRM system from scratch for an accounting firm to manage clients, leads, and financial operations. Designed role-based authentication and optimized MySQL schema for scalable CRUD operations, improving data consistency by 20%.",
+    category: { title: "Github", href: "https://github.com/Jeganath18/CRM-web" },
+    techStack: "React.js | Node.js | Express.js | MySQL | Tailwind CSS",
+    href: "https://github.com/Jeganath18/CRM-web",
+  },
+  {
+    id: 4,
+    title: "Weather4U",
+    description:
+      "Developed a web app that shows real-time temperature, humidity, and AQI for any city by entering its name. Integrated external weather APIs to provide accurate and up-to-date information.",
+    category: { title: "Github", href: "#https://github.com/Jeganath18/Weather4U_WebApp" },
+    techStack: "React.js | Node.js | OpenWeather API",
+    href: "#",
+  },
+];
+
 
 
 const posts = [
@@ -21,7 +97,7 @@ const posts = [
       role: 'Director at Plugzmart | Software Lead',
       href: '#',
     },
-    href:'https://www.linkedin.com/in/jeganathb/details/recommendations/'
+    href: 'https://www.linkedin.com/in/jeganathb'
   },
   {
     id: 2,
@@ -34,7 +110,7 @@ const posts = [
       role: 'Software Developer at Propel',
       href: '#',
     },
-    href:'https://www.linkedin.com/in/jeganathb/details/recommendations/'
+    href: 'https://www.linkedin.com/in/jeganathb'
 
   },
   {
@@ -48,7 +124,7 @@ const posts = [
       role: 'Software Developer at Plugzmart',
       href: '#',
     },
-    href:'https://www.linkedin.com/in/jeganathb/details/recommendations/'
+    href: 'https://www.linkedin.com/in/jeganathb'
 
   },
   {
@@ -62,15 +138,29 @@ const posts = [
       role: 'Software Tester at Plugzmart',
       href: '#',
     },
-    href:'https://www.linkedin.com/in/jeganathb/details/recommendations/'
+    href: 'https://www.linkedin.com/in/jeganathb'
 
+  },
+  {
+    id: 5,
+    description:
+      'I had the pleasure of working with Jegan during his time as a Software Developer Intern at Softrate. From day one, he demonstrated strong technical abilities, a great attitude, and a genuine curiosity to learn.',
+    date: 'Aug 1 2025',
+    category: { title: 'Jegan\'s Manager', href: 'https://www.linkedin.com/in/softrateceo/' },
+    author: {
+      name: 'Balaji Rajendran',
+      role: 'CEO at Softrate Technologies',
+      href: '#',
+    },
+    href: 'https://www.linkedin.com/in/jeganathb'
   },
 ];
 const navigation = [
   { name: 'About', href: '#about' },
-  { name: 'Education', href: '#education' },
+  { name: 'Projects', href: '#projects' },
   { name: 'Experience', href: '#experience' },
-  {name : 'Recommendations', href: '#Recommendation'},
+  { name: 'Education', href: '#education' },
+  { name: 'Recommendations', href: '#Recommendation' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -129,7 +219,7 @@ export default function Example() {
               <span className="sr-only"></span>
             </a>
           </div>
-          <div className="flex lg:hidden"> 
+          <div className="flex lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
@@ -204,11 +294,13 @@ export default function Example() {
         <div className="mx-auto max-w-2xl py-10 sm:py-48 lg:py-20">
           {/* Circular Image with Border */}
           <div className="flex justify-center">
-          <img
-            src="https://i.ibb.co/qLmcwTX5/IMG-8441.jpg"
-            alt="Jeganath"
-            className="rounded-full h-48 w-48 border-4 border-indigo-600 shadow-lg hover:border-indigo-500 transition-all duration-300"
-            />
+            <div className="h-48 w-48 rounded-full overflow-hidden border-4 border-indigo-600 shadow-lg">
+              <img
+                src="https://i.ibb.co/qLmcwTX5/IMG-8441.jpg"
+                alt="Jeganath"
+                className="h-full w-full object-cover transform transition-transform duration-500 scale-110"
+              />
+            </div>
           </div>
 
           <div className="text-center">
@@ -217,7 +309,10 @@ export default function Example() {
             </h1>
             <Words></Words>
           </div>
+           <ScrollArrow />
+
         </div>
+
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
@@ -234,7 +329,7 @@ export default function Example() {
 
       {/*About section*/}
       <div className="relative isolate py-30 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center" id='about'>
-      <div
+        <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         >
@@ -247,15 +342,21 @@ export default function Example() {
           />
         </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl lg:text-center">
+          <div className="mx-auto max-w-4xl lg:text-left">
             <h2 className="text-base/7 font-semibold text-indigo-600">About</h2>
             <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance">
               About me!
             </p>
             <p className="mt-6 text-lg/8 text-white dark:text-white">
-          I'm a full-stack developer with strong experience in building efficient and scalable applications using technologies like Angular, React, Node.js, and Express. I’m passionate about creating seamless and responsive user experiences on the frontend while ensuring robust, efficient backend architectures. Currently, I’m diving deeper into database management with PostgreSQL and MySQL to strengthen my backend skills, focusing on optimizing queries, relationships, and performance. <br></br> I’m comfortable working with version control systems like Git and GitHub, making collaboration easier and streamlining the development process. My experience with Postman has helped me ensure smooth API testing and integration, allowing for quick iterations and bug-free releases. Additionally, I’ve worked with Java in various contexts, leveraging it for problem-solving and strengthening my ability to think through complex coding challenges.
+              Hi, I’m Jeganath B, a passionate Software Engineer who loves turning ideas into scalable, user-focused applications. I specialize in full-stack development using technologies like React.js, Node.js, Express.js, MySQL, and Docker, and I enjoy designing clean architectures that solve real business problems efficiently.
+              <br />
+              I’ve worked with organizations such as Meriity (Australia), Softrate Technologies, and Plugzmart (IITMRP company), where I built and deployed production-ready solutions ranging from CRM systems to AI-powered sales agents and EV charger debugging tools. These experiences helped me strengthen my skills in RESTful API design, database optimization, and microservice-based system architecture.
+              <br />
+              Beyond code, I’m driven by curiosity — always exploring new tools, frameworks, and AI integrations to enhance performance and user experience. I enjoy collaborating in Agile teams, where continuous learning and problem-solving fuel innovation.
+              <br />
+              Currently, I’m pursuing my B.E. in Electrical and Electronics Engineering at Sri Sairam Engineering College, while seeking opportunities to contribute as a Software Engineer Role and build impactful, intelligent, and scalable products that make technology more human-centric.
             </p>
-            <h2 className="mt-2 text-4xl/8 font-semibold text-indigo-600">I’m focused on delivering quality results while continuously learning and evolving in the process.</h2>
+            <h2 className="mt-2 text-4xl/8 font-semibold text-indigo-600">I learn best by doing building, breaking, and rebuilding.</h2>
           </div>
           <div className="mx-auto mt-5 max-w-2xl sm:mt-5 lg:mt-24 lg:max-w-4xl">
 
@@ -274,11 +375,157 @@ export default function Example() {
             className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
           />
         </div>
+           <ScrollArrow />
+
       </div>
-          
-      {/* Education Section */}
+
+            {/*Projects*/}
+      <div className="bg-gray-900 py-24 sm:py-32 min-h-screen" id="projects">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl lg:mx-0">
+            <h2 className="text-base font-semibold text-indigo-600">Projects</h2>
+            <h2 className="text-4xl font-semibold tracking-tight text-gray-200 sm:text-5xl">My Projects</h2>
+            <p className="mt-5 text-lg text-indigo-200">
+              I’ve had the opportunity to work on a variety of projects that challenge me to learn, innovate, and build practical solutions. Each project reflects my curiosity, problem-solving skills, and dedication to delivering quality results. Here, I showcase some of the work I’m most proud of and the impact it has made.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto scroll-smooth py-8">
+            <div className="flex gap-x-5 gap-y-5 flex-wrap justify-center">
+              {projects.map((project) => (
+                <div
+                  key={project.id}
+                  className="flex-none w-full sm:w-80 md:w-72 bg-gray-800 rounded-xl p-6 hover:scale-105 transition-transform duration-300"
+                >
+                  <div className="text-lg font-semibold text-gray-200 flex justify-between items-center mb-3">
+                    {/* <span className="text-gray-400">{project.date}</span> */}
+                    <a href={project.href} target="_blank" rel="noopener noreferrer">
+                      {project.title}
+                    </a>
+
+                  </div>
+
+                  <h3 className="text-lg font-semibold text-gray-200 mb-2">
+                    <a
+                      href={project.category.href}
+                      className="rounded-full bg-indigo-600 px-3 py-1.5 text-white text-xs font-medium hover:bg-indigo-500"
+                    >
+                      {project.category.title}
+                    </a>
+
+                  </h3>
+
+                  <p className="text-gray-300 text-sm mb-4 line-clamp-4">{project.description}</p>
+
+                  <div className="text-sm text-gray-400">
+                    <p>
+                      <span className="font-semibold text-gray-200">{project.techStack}</span>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+           <ScrollArrow />
+
+          </div>
+        </div>
+      </div>
+      <div className="py-10 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center pt-10 exp relative overflow-hidden">
+
+        {/* Content */}
+        <div className="relative isolate py-5 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center p-8 sm:p-50 lg:p-40 xl:p-70" id='experience'>
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          >
+            <div
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 100% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+              className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            />
+          </div>
+          <h2 className="text-base/7 font-semibold text-indigo-600 upp">Experience</h2>
+          <p className="mt-0 mb-10 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance">
+            My Experience
+          </p>
+
+          <ul>
+            <li className="relative flex items-baseline gap-6 pb-5">
+              <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
+                  <circle cx="8" cy="8" r="8" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-indigo-300">Meriity (Australia) — Software Developer (Remote, Part-Time) September 2025-Present</p>
+                <p className="mt-0 text-gray-200 text-l/8">After my internship, I was promoted to a Software Developer role based on performance.
+                  I continued contributing to OpsNav, leading feature development, workflow automation, and API optimization tasks.
+                  In this role, I gained deeper experience in end-to-end product development, CI/CD deployment, and maintaining high-quality, scalable codebases while balancing my academics.</p>
+              </div>
+            </li>
+            <li className="relative flex items-baseline gap-6 pb-5">
+              <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
+                  <circle cx="8" cy="8" r="8" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-indigo-300">Meriity (Australia) — Full-Stack Developer Intern (Remote) March 2025-September 2025</p>
+                <p className="mt-0 text-gray-200 text-l/8">During my internship at Meriity, I worked on OpsNav, an operations management tool for businesses, contributing to both frontend and backend modules.
+                  I developed and optimized RESTful APIs, improved database efficiency, and collaborated with remote teams to deliver production-ready features.
+                  This experience helped me refine my problem-solving skills, communication, and ability to deliver results in a distributed Agile environment.</p>
+              </div>
+            </li>
+
+            <li className="relative flex items-baseline gap-6 pb-5">
+              <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
+                  <circle cx="8" cy="8" r="8" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-indigo-300">Softrate Technologies — Full-Stack Developer Intern (Onsite) Jun 2025-Jul 2025</p>
+                <p className="mt-0 text-gray-200 text-l/8">I completed a full-stack development internship at Softrate Technologies, where I built a complete CRM application from scratch using React.js, Node.js, Express.js, and MySQL.
+                  This role strengthened my understanding of backend API design, authentication, and responsive UI development.
+                  Working directly with clients improved my ability to deliver secure, user-friendly, and data-driven business solutions within tight deadlines.</p>
+              </div>
+            </li>
+
+            <li className="relative flex items-baseline gap-6 pb-5">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
+                  <circle cx="8" cy="8" r="8" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-indigo-300">Meras Plugins Private Limited (Plugzmart) - Frontend Developer Intern (Onsite) December 2024-January 2025</p>
+                <p className="mt-0 text-gray-200 text-l/8">I completed a one-month onsite internship at Meras Plugins Pvt Ltd - Plugzmart in IITM Research Park, where I developed a testing tool for charger behavior using Open Charge Point Protocol 1.6. Despite having no prior experience with Angular, I successfully gained technical proficiency in the framework. The internship also provided valuable insights into resilience and teamwork, contributing to my professional growth.</p>
+              </div>
+            </li>
+          </ul>
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+          >
+            <div
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
+              className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+            />
+          </div>
+
+        </div>
+           <ScrollArrow />
+
+      </div>
+
+            {/* Education Section */}
       <div className="relative isolate py-40 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center" id='education'>
-      <div
+        <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl"
         >
@@ -315,6 +562,7 @@ export default function Example() {
               ))}
             </dl>
           </div>
+           <ScrollArrow />
         </div>
         <div
           aria-hidden="true"
@@ -328,302 +576,177 @@ export default function Example() {
             className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
           />
         </div>
-      </div>
-      <div className="py-10 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center pt-10 exp relative overflow-hidden">
 
-  {/* Content */}
-  <div className="relative isolate py-5 sm:py-30 bg-gray-900 dark:bg-gray-900 min-h-screen flex flex-col justify-center p-8 sm:p-50 lg:p-40 xl:p-70" id='experience'>
-  <div
-          aria-hidden="true"
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        >
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 100% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          />
-        </div>
-    <h2 className="text-base/7 font-semibold text-indigo-600 upp">Experience</h2>
-    <p className="mt-0 mb-10 text-4xl font-semibold tracking-tight text-pretty text-white dark:text-white sm:text-5xl lg:text-balance">
-      My Experience
-    </p>
-
-    <ul>
-    <li className="relative flex items-baseline gap-6 pb-5">
-        <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
-            <circle cx="8" cy="8" r="8" />
-          </svg>
-        </div>
-        <div>
-          <p className="text-gray-200">March 2025-Present</p>
-          <h2 className="text-sm text-base/7 font-semibold text-indigo-600">Software Developer Intern</h2>
-          <p className="mt-0 text-gray-200 text-l/8">Currently interning remotely as a Full Stack Developer at Meriity, an Australian company. I am responsible for both front-end and back-end development, gaining hands-on experience with modern technologies. This role is enhancing my technical skills while fostering growth in teamwork and professional development. I am compensated with a stipend for my contributions.</p>
-        </div>
-      </li>
-      <li className="relative flex items-baseline gap-6 pb-5">
-        <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
-            <circle cx="8" cy="8" r="8" />
-          </svg>
-        </div>
-        <div>
-          <p className="text-gray-200">December 2024-January 2025</p>
-          <h2 className="text-sm text-base/7 font-semibold text-indigo-600">Software Developer Intern</h2>
-          <p className="mt-0 text-gray-200 text-l/8">I completed a one-month onsite internship at Meras Plugins Pvt Ltd - Plugzmart in IITM Research Park, where I developed a testing tool for charger behavior using Open Charge Point Protocol 1.6. Despite having no prior experience with Angular, I successfully gained technical proficiency in the framework. The internship also provided valuable insights into resilience and teamwork, contributing to my professional growth.</p>
-        </div>
-      </li>
-      
-      <li className="relative flex items-baseline gap-6 pb-5">
-        <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
-            <circle cx="8" cy="8" r="8" />
-          </svg>
-        </div>
-        <div>
-          <p className="text-sm text-gray-200">Jun 2024-Jul 2024</p>
-          <h2 className="text-sm text-base/7 font-semibold text-indigo-600">Web Developer Intern</h2>
-          <p className="mt-0 text-gray-200 text-l/8">I completed an online internship at CodeClause, where I developed and implemented tasks using Node JS. This experience enhanced my technical skills and ability to work independently in a remote setting.</p>
-        </div>
-      </li>
-
-      <li className="relative flex items-baseline gap-6 pb-5">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" className="bi bi-circle-fill fill-gray-400" viewBox="0 0 16 16">
-            <circle cx="8" cy="8" r="8" />
-          </svg>
-        </div>
-        <div>
-          <p className="text-sm text-gray-200">Jun 2024-Jul 2024</p>
-          <h2 className="text-sm text-base/7 font-semibold text-indigo-600">Java Developer Intern</h2>
-          <p className="mt-0 text-gray-200 text-l/8">I completed an online internship at Let's Grow More as a Java Development Intern, where I developed GUI applications and enhanced my technical skills while working independently in a remote setting.</p>
-        </div>
-      </li>
-    </ul>
-    <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        >
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          />
-        </div>
-  </div>
-</div>
-{/*Recommendations*/}
-<div className="bg-gray-900 dark:bg-gray-900 py-24 sm:py-32 min-h-screen" id='Recommendation'>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl lg:mx-0">
-        <h2 className="text-base/7 font-semibold text-indigo-600">Recommendations</h2>
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-200 sm:text-5xl">What People Are Saying</h2>
-          <p className="mt-5 text-lg/8 text-indigo-200">I’ve had the privilege of collaborating with incredible individuals and teams. Here are some of the kind words and recommendations they’ve shared about our work together. I’m grateful for their trust and feedback, and I’m always looking forward to future collaborations!</p>
-        </div>
-        <div className="overflow-x-auto scroll-smooth py-4">
-        <div className="flex gap-x-5 gap-y-5 mt-15 flex-wrap justify-center">
-  {posts.map((post) => (
-    <div
-      key={post.id}
-      className="flex-none w-full sm:w-80 md:w-52 lg:w-72 bg-gray-800 rounded-xl p-4 mb-6 md:mb-0"
-    >
-      <div className="flex items-center gap-x-4 text-xs">
-        <time dateTime={post.datetime} className="text-gray-200">
-          {post.date}
-        </time>
-        <a
-          href={post.category.href}
-          className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-900 hover:bg-gray-100"
-        >
-          {post.category.title}
-        </a>
       </div>
 
-      <div className="group relative mt-3">
-        <h3 className="text-lg font-semibold text-gray-200 group-hover:text-gray-600">
-          <a href={post.href}>
-            <span className="absolute inset-0" />
-            {post.title}
-          </a>
-        </h3>
-        <p href={post.href} className="mt-5 text-sm text-gray-200 line-clamp-3">{post.description}</p>
+      {/*Recommendations*/}
+      <div className="bg-gray-900 dark:bg-gray-900 py-24 sm:py-32 min-h-screen" id='Recommendation'>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl lg:mx-0">
+            <h2 className="text-base/7 font-semibold text-indigo-600">Recommendations</h2>
+            <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-200 sm:text-5xl">What People Are Saying</h2>
+            <p className="mt-5 text-lg/8 text-indigo-200">I’ve had the privilege of collaborating with incredible individuals and teams. Here are some of the kind words and recommendations they’ve shared about our work together. I’m grateful for their trust and feedback, and I’m always looking forward to future collaborations!</p>
+          </div>
+          <div className="overflow-x-auto scroll-smooth py-4">
+            <div className="flex gap-x-5 gap-y-5 mt-15 flex-wrap justify-center">
+              {posts.map((post) => (
+                <div
+                  key={post.id}
+                  className="flex-none w-full sm:w-80 md:w-52 lg:w-72 bg-gray-800 rounded-xl p-4 mb-6 md:mb-0"
+                >
+                  <div className="flex items-center gap-x-4 text-xs">
+                    <time dateTime={post.datetime} className="text-gray-200">
+                      {post.date}
+                    </time>
+                    <a
+                      href={post.category.href}
+                      className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-900 hover:bg-gray-100"
+                    >
+                      {post.category.title}
+                    </a>
+                  </div>
+
+                  <div className="group relative mt-3">
+                    <h3 className="text-lg font-semibold text-gray-200 group-hover:text-gray-600">
+                      <a href={post.href}>
+                        <span className="absolute inset-0" />
+                        {post.title}
+                      </a>
+                    </h3>
+                    <p href={post.href} className="mt-5 text-sm text-gray-200 line-clamp-3">{post.description}</p>
+                  </div>
+                  <div className="relative mt-8 flex items-center gap-x-4">
+                    <div className="text-sm flex flex-col">
+                      <p className="font-semibold text-gray-200">
+                        <a href={post.category.href}>
+                          <span className="absolute inset-0" />
+                          {post.author.name}
+                        </a>
+                      </p>
+                      <p className="text-gray-400">{post.author.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+           <ScrollArrow />
+
+          </div>
+        </div>
+
       </div>
-      <div className="relative mt-8 flex items-center gap-x-4">
-      <div className="text-sm flex flex-col">
-  <p className="font-semibold text-gray-200">
-    <a href={post.category.href}>
-      <span className="absolute inset-0" />
-      {post.author.name}
-    </a>
-  </p>
-  <p className="text-gray-400">{post.author.role}</p>
-</div>
+
+
+      {/*Contact */}
+      <div className="bg-gray-900 min-h-screen py-24 px-6 sm:px-12" id="contact">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-base font-semibold text-indigo-500 uppercase tracking-wide">Contact</h2>
+          <h2 className="mt-2 text-4xl font-bold text-gray-100 sm:text-5xl">Get in touch!</h2>
+          <p className="mt-4 text-lg text-gray-300">
+            I'm always open to new opportunities, collaborations, and interesting conversations.
+          </p>
+          <p className="mt-2 text-lg text-gray-400">
+            Feel free to send me a message, and I'll respond quicker than a bug fix during crunch time!
+          </p>
+
+          {/* Contact Form */}
+          <form
+            onSubmit={handleSubmit}
+            className="mt-12 bg-gray-800 rounded-xl p-8 shadow-lg space-y-6"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="sm:col-span-2">
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Your Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="mt-1 block w-full rounded-md bg-gray-700 px-4 py-2 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="mt-1 block w-full rounded-md bg-gray-700 px-4 py-2 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+              </div>
+              <div className="sm:col-span-2">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  placeholder="Write your message..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="mt-1 block w-full rounded-md bg-gray-700 px-4 py-2 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 rounded-lg shadow-md transition-all duration-300"
+            >
+              Send Message
+            </button>
+
+            {responseMessage && <p className="text-green-400 mt-2">{responseMessage}</p>}
+            {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
+          </form>
+        </div>
+
+        {/* Footer */}
+        <footer className="mt-16 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 rounded-xl p-8 text-center text-white shadow-lg">
+          <p className="mb-4 font-semibold">
+            &copy; Designed & Developed by{' '}
+            <a
+              href="https://github.com/Jeganath18"
+              className="underline hover:text-blue-300"
+            >
+              JX718
+            </a>
+          </p>
+
+          <div className="flex justify-center items-center gap-8 mb-4">
+            <a
+              href="https://github.com/Jeganath18"
+              className="hover:text-gray-200 transition-colors"
+              target="_blank"
+            >
+              Github
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jeganathb"
+              className="hover:text-gray-200 transition-colors"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://www.instagram.com/itz_jegan_07/"
+              className="hover:text-gray-200 transition-colors"
+              target="_blank"
+            >
+              Instagram
+            </a>
+          </div>
+
+          <p className="text-gray-100 italic text-sm">
+            "அடைவதும் முன்னேற்றம் பெருக்கும் திடமுடைமை
+            எவ்வாறு வந்தாலும் வெற்றிக்கிடைக்கின்றது." : குறள் 448
+          </p>
+        </footer>
       </div>
     </div>
-  ))}
-</div>
-</div>
-</div>
-</div>
-
-{/*Contact */}
-<div className="relative mx-auto max-w-2xl text-center min-h-screen py-5 p-5" id="contact">
-      <h2 className="text-base/7 font-semibold text-indigo-600">Contact</h2>
-      <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-200 sm:text-5xl">Get in touch!</h2>
-      <p className="mt-2 text-l/6 text-gray-200">
-        I'm always open to new opportunities, collaborations, and interesting conversations
-      </p>
-      <p className="mt-2 text-l/6 text-gray-200">
-        Feel free to send me a message, and I'll respond quicker than a bug fix during crunch time (guaranteed)!
-      </p>
-
-      <form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-5">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          {/* Name Input */}
-          <div className="sm:col-span-2">
-            <label htmlFor="name" className="block text-sm/6 font-semibold text-gray-200">Name</label>
-            <div className="">
-              <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder='Name'
-                value={name} // Bind the value to state
-                onChange={(e) => setName(e.target.value)} // Update state on input change
-                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                required
-              />
-            </div>
-          </div>
-
-          {/* Email Input */}
-          <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm/6 font-semibold text-gray-200">Email</label>
-            <div className="">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                value={email} // Bind the value to state
-                onChange={(e) => setEmail(e.target.value)} // Update state on input change
-                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                required
-              />
-            </div>
-          </div>
-
-          {/* Message Input */}
-          <div className="sm:col-span-2">
-            <label htmlFor="message" className="block text-sm/6 font-semibold text-gray-200">Message</label>
-            <div className="">
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                value={message} // Bind the value to state
-                onChange={(e) => setMessage(e.target.value)} // Update state on input change
-                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                required
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="mt-5 block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Let's talk
-        </button>
-      </form>
-
-      {/* Response or Error Message */}
-      {responseMessage && <p style={{ color: 'green' }}>{responseMessage}</p>}
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-
-<div className='w-full'>
-<footer className="pl-10 pr-10 mt-5 flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-3 text-center md:justify-between bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 animate-gradient">
-  <Typography color="white" className="font-normal">
-    &copy; Designed and Developed by <a href="https://github.com/Jeganath18">JX718</a>
-  </Typography>
-  <ul className="flex flex-wrap items-center gap-y-2 gap-x-8 to">
-    <li>
-      <Typography
-        as="a"
-        href="https://github.com/Jeganath18"
-        color="white"
-        className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-      >
-        Github
-      </Typography>
-    </li>
-    <li>
-      <Typography
-        as="a"
-        href="www.linkedin.com/in/jeganathb"
-        color="white"
-        className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-      >
-        LinkedIn
-      </Typography>
-    </li>
-    <li>
-      <Typography
-        as="a"
-        href="https://www.instagram.com/itz_jegan_07/?igsh=MTVpaHo1djZoZWRoZA%3D%3D&utm_source=qr#"
-        color="white"
-        className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-      >
-        Instagram
-      </Typography>
-    </li>
-  </ul>
-
-  <h2 className="to text-l/8 font-semibold text-gray-200">"அடைவதும் முன்னேற்றம் பெருக்கும் திடமுடைமை
-  எவ்வாறு வந்தாலும் வெற்றிக்கிடைக்கின்றது." : குறள் 448</h2>
-
-</footer>
-
-<style jsx>{`
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-  .animate-gradient {
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-  }
-
-  footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-  }
-
-  .footer-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 100vh; /* This ensures the footer stays at the bottom */
-  }
-`}</style>
-
-</div>
-      
-</div>
-</div>
   );
 }
