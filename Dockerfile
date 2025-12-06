@@ -15,7 +15,7 @@ FROM --platform=linux/amd64 nginx:1.21-alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy build output to nginx directory
-COPY --from=build /app/dest /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Optional: custom Nginx config for SPA (fixes routing)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
